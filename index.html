@@ -11,18 +11,25 @@
     <script>
 
       $(document).ready(function(){
-        var $body = $('.twitts');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
         
+        var getTwitts = function() {
+          var $body = $('.twitts');
+          $body.html('');
+
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.text(tweet.created_at + ': ' + '@' + tweet.user + ': ' + tweet.message);
+            $tweet.appendTo($body);
+            index -= 1;
+          }
+        };  
+        
+        //('button').on('click', function(){
+        //  getTwitts();  
+        //});
+        getTwitts();
 
       });
     
@@ -37,7 +44,7 @@
     </div>
 
     <div>
-      <button class="send">Get New Twittles</button>
+      <button type="button">Get New Twittles</button>
     </div>
    
 
