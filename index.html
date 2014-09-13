@@ -5,6 +5,8 @@
     <title>Twittler</title>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="main.css"></script>
+    <script src="moment.min.js"></script>
   </head>
   <body>
 
@@ -26,7 +28,15 @@
           }
         };  
         
-        $('#GettingTwitts').click(getTwitts);
+        $('#GettingTwitts').click(function(){
+          //$('.#main').empty();
+          getTwitts();
+        });
+
+         $('#Clear').click(function(){
+          $('#main').detach();
+        });
+
 
       });
     
@@ -42,6 +52,10 @@
 
     <div id="GettingTwitts">
       <button type="button">Get New Twitts</button>
+    </div>
+
+    <div id="Clear">
+      <button type="button">Clear</button>
     </div>
    
 
