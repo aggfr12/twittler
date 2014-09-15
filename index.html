@@ -13,7 +13,9 @@
     <script>
 
       $(document).ready(function(){
-        
+
+        var a = moment();
+
         var getTwitts = function() {
           var $body = $('.twitts');
           $body.html('');
@@ -22,30 +24,43 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var momentObj = moment(tweet.created_at);
-            var $tweet = $('<div></div>');
-            $tweet.text(momentObj.format("HH:mm a") + ': @' + tweet.user + ': ' + tweet.message + ': ' + moment().fromNow());
+            var $tweet = $('<div class="tweet"></div>');
+            $tweet.text(momentObj.format("HH:mm a") + ': @' + tweet.user + ': ' + tweet.message + ': ' + moment(momentObj).fromNow());
             $tweet.appendTo($body);
             index -= 1;
           }
         };  
         
         $('#GettingTwitts').click(function(){
-          //$('.#main').empty();
+          $('.twitts').empty();
           getTwitts();
         });
 
-         $('#Clear').click(function(){
-          $('#main').empty();
+        $('#Clear').click(function(){
+          $('.twitts').empty();
+        });
+
+        $('.tweet').click(function(){
+          window.location=$(this).find("a").attr("href");
+          return false;
         });
 
 
       });
     
     </script>
-    
-    <div>
+    <header>
       <h1>Twittler</h1>
-    </div>
+      <h2>Nonsensical Short Quips For Your Friends</h2>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+    </header>
+    <section>
 
     <div id="main">
       <ul class="twitts"></ul>
@@ -58,7 +73,10 @@
     <div id="Clear">
       <button type="button">Clear</button>
     </div>
-   
+   </section>
+   <footer>
+    <p>&copy 2014 Avi Dunn</p>
+   </footer>
 
   </body>
   
