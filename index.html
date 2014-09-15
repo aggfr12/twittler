@@ -8,6 +8,7 @@
     <script src="main.css"></script>
     <script src="moment.min.js"></script>
     <link rel="stylesheet" href="main.css">
+    
   </head>
   <body>
 
@@ -18,8 +19,8 @@
         var a = moment();
 
         var getTwitts = function() {
-          var $body = $('.twitts');
-          $body.html('');
+          var $tweetBox = $('.twitts');
+          $tweetBox.html('');
 
           var index = streams.home.length - 1;
           while(index >= 0){
@@ -27,7 +28,7 @@
             var momentObj = moment(tweet.created_at);
             var $tweet = $('<div class="tweet"></div>');
             $tweet.text(momentObj.format("HH:mm a") + ': @' + tweet.user + ': ' + tweet.message + ': ' + moment(momentObj).fromNow());
-            $tweet.appendTo($body);
+            $tweet.appendTo($tweetBox);
             index -= 1;
           }
         };  
@@ -52,8 +53,10 @@
     </script>
     
     <header>
-      <h1>Twittler</h1>
-      <h2>Nonsensical Short Quips For Your Friends</h2>
+      <a href="index.html" id="logo">
+        <h1>Twittler</h1>
+        <h2>Nonsensical Short Quips From Your Friends</h2>
+      </a>
       <nav>
         <ul>
           <li>Home</li>
@@ -63,14 +66,14 @@
       </nav>
     </header>
     <section>
-      <div id="main">
-        <ul class="twitts"></ul>
-      </div>
       <div id="GettingTwitts">
         <button type="button">Get New Twitts</button>
       </div>
       <div id="Clear">
         <button type="button">Clear</button>
+      </div>
+      <div id="main">
+        <ul class="twitts"></ul>
       </div>
      </section>
      <footer>

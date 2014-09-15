@@ -14,15 +14,20 @@ Heading
 header {
 	float: left;
 	margin: 0 0 30px 0;
-	padding: 5px 0 0 0;
+	padding: 10px 0 0 0;
 	width: 100%;
+}
+
+#logo {
+	text-align: center;
+	margin: 0;
 }
 
 h1 {
 	margin: 15px 0;
-	font-size: 1.75em;
-	font-weight: normal;
-	line-height: 0.8em;
+	font-size: 3em;
+	font-weight: 600;
+	
 }
 
 h2{
@@ -37,8 +42,84 @@ h2{
 Navigation
 **********/
 
+nav {
+	text-align: center;
+	padding: 10px 0;
+	margin: 20px 0 0;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0 10px;
+	padding: 0;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav a {
+	font-weight: 800;
+	padding: 15px 10px;
+}
+
+/**********
+tweets
+**********/
+
+.tweet {
+	font-size: 1.25em;
+	text-align: center;
+	clear: both;
+	padding: 10px 30px;
+	background-color: #87cefa;
+	color: #4b0082;
+}
 
 
 /**********
 Footer
 **********/
+
+footer {
+	font-size: 0.75em;
+	text-align: left;
+	clear: both;
+	padding-top: 50px;
+	color: #ccc;
+}
+
+/**********
+Colors
+**********/
+
+body {
+	background-color: #fff;
+	color: #999;
+}
+
+header {
+	background: #6ab47b;
+	border-color: #599a68;
+}
+
+nav {
+	background: #599a68;
+}
+
+h1, h2 {
+	color: #40e0d0;
+}
+
+a {
+	color: #6ab47b;
+}
+
+nav a {
+	color: #fff;
+}
+
+
+
+
+
