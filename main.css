@@ -6,6 +6,11 @@ body {
 	font-family: 'open Sans', sans-serif;
 }
 
+#wrapper {
+	max-width: 1000px;
+	margin: 0 10px;
+	padding: 0 5%;
+}
 
 /**********
 Heading
@@ -83,7 +88,7 @@ Footer
 
 footer {
 	font-size: 0.75em;
-	text-align: left;
+	text-align: center;
 	clear: both;
 	padding-top: 50px;
 	color: #ccc;
@@ -108,7 +113,7 @@ nav {
 }
 
 h1, h2 {
-	color: #40e0d0;
+	color: #191970;
 }
 
 a {
