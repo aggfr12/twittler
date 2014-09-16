@@ -33,20 +33,13 @@
           }
         };  
         
-        $('#GettingTwitts').click(function(){
-          $('.twitts').empty();
+        $('#GettingAllTwitts').click(function(){    
           getTwitts();
         });
 
-        $('#Clear').click(function(){
+        $('#ClearAllTwitts').click(function(){
           $('.twitts').empty();
         });
-
-        $('.tweet').click(function(){
-          window.location=$(this).find("a").attr("href");
-          return false;
-        });
-
 
       });
     
@@ -70,8 +63,12 @@
       </div>
       <div id="content">
         <section>
-          <button type="button" id="GettingTwitts">Get New Twitts</button>
-          <button type="button" id="Clear">Clear</button>
+          <button type="button" id="Showshawndrost">Show shawndrost's Twitts</button>
+          <button type="button" id="Showsharksforcheap">Show sharksforcheap's Twitts</button>
+          <button type="button" id="Showmracus">Show mracus Twitts</button>
+          <button type="button" id="Showdouglascalhoun">Show douglascalhoun's Twitts</button>
+          <button type="button" id="GettingAllTwitts">Show All Twitts</button>
+          <button type="button" id="ClearAllTwitts">Clear</button>
           <div id="main">
             <ul class="twitts"></ul>
           </div>
@@ -79,7 +76,7 @@
       </div>
       <div id="footer">  
         <footer>
-          <p>&copy 2014 Whatever</p>
+          <p>&copy 2014 Avi Dunn</p>
         </footer>
       </div>
     </div>
