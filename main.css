@@ -86,9 +86,12 @@ content / tweets
 	font-size: 1.25em;
 	text-align: center;
 	clear: both;
-	padding: 10px 30px;
+	padding: 30px 30px;
 	background-color: #87cefa;
 	color: #4b0082;
+	border-style: solid;
+	border-color: red; 
+	margin: 10px 20px;
 }
 
 

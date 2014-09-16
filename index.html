@@ -27,7 +27,7 @@
             var tweet = streams.home[index];
             var momentObj = moment(tweet.created_at);
             var $tweet = $('<div class="tweet"></div>');
-            $tweet.text(momentObj.format("HH:mm a") + ':  ' + moment(momentObj).fromNow() + ' @' + tweet.user + ' tweeted: ' + tweet.message);
+            $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
             $tweet.appendTo($tweetBox);
             index -= 1;
           }
@@ -79,7 +79,7 @@
       </div>
       <div id="footer">  
         <footer>
-          <p>&copy 2014 Avi Dunn</p>
+          <p>&copy 2014 Whatever</p>
         </footer>
       </div>
     </div>
