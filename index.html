@@ -31,10 +31,17 @@
             $tweet.appendTo($tweetBox);
             index -= 1;
           }
-        };  
+        };
         
+        $('.twitts').click(function(){    
+          console.log("hello");
+          var str = $(this).text();
+          console.log(str);
+        });
+
         $('#GettingAllTwitts').click(function(){    
           getTwitts();
+          console.log($('.twitts').first());
         });
 
         $('#ClearAllTwitts').click(function(){
@@ -63,10 +70,6 @@
       </div>
       <div id="content">
         <section>
-          <button type="button" id="Showshawndrost">Show shawndrost's Twitts</button>
-          <button type="button" id="Showsharksforcheap">Show sharksforcheap's Twitts</button>
-          <button type="button" id="Showmracus">Show mracus Twitts</button>
-          <button type="button" id="Showdouglascalhoun">Show douglascalhoun's Twitts</button>
           <button type="button" id="GettingAllTwitts">Show All Twitts</button>
           <button type="button" id="ClearAllTwitts">Clear</button>
           <div id="main">
