@@ -33,15 +33,27 @@
           }
         };
         
-        $('.twitts').click(function(){    
-          console.log("hello");
-          var str = $(this).text();
+        var getSelectedTwitts = function(username){
+          $tweetBox.html('');
+
+          var index = streams.users[username].length - 1;
+          while(index >= 0){
+            var tweet = streams.users[username][index;]
+            var momentObj = moment(tweet.created_at);
+            var $tweet = $('<div class="tweet"></div>');
+            $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
+            $tweet.appendTo($tweetBox);
+            index -= 1;
+          }
+        };
+
+        $('.tweet').click(function(){    
+          var tweet = $(this).text();
           console.log(str);
         });
 
         $('#GettingAllTwitts').click(function(){    
           getTwitts();
-          console.log($('.twitts').first());
         });
 
         $('#ClearAllTwitts').click(function(){
