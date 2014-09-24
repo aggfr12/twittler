@@ -33,12 +33,12 @@
           }
         };
         
-        var getSelectedTwitts = function(username){
+        var getSelectedTwitts = function(userName){
           $tweetBox.html('');
 
-          var index = streams.users[username].length - 1;
+          var index = streams.users.userName.length - 1;
           while(index >= 0){
-            var tweet = streams.users[username][index;]
+            var tweet = streams.users.userName[index];
             var momentObj = moment(tweet.created_at);
             var $tweet = $('<div class="tweet"></div>');
             $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
@@ -48,8 +48,9 @@
         };
 
         $('.tweet').click(function(){    
-          var tweet = $(this).text();
-          console.log(str);
+          var username = $(this).text().split(" ")[4].splice(1);
+          //console.log(tweet);
+          getSelectedTwitts(username);
         });
 
         $('#GettingAllTwitts').click(function(){    
