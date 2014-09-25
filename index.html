@@ -5,7 +5,6 @@
     <title>Twittler</title>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <script src="main.css"></script>
     <script src="moment.min.js"></script>
     <link rel="stylesheet" href="main.css">
     
@@ -48,9 +47,8 @@
         };
 
         $('.tweet').click(function(){    
-          var username = $(this).text().split(" ")[4].splice(1);
-          //console.log(tweet);
-          getSelectedTwitts(username);
+          var name = $(this).text().split(" ")[4].splice(1);
+          console.log(name);
         });
 
         $('#GettingAllTwitts').click(function(){    
@@ -58,7 +56,7 @@
         });
 
         $('#ClearAllTwitts').click(function(){
-          $('.twitts').empty();
+          $('.twitts').children().remove();
         });
 
       });
