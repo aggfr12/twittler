@@ -25,19 +25,26 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var momentObj = moment(tweet.created_at);
-            var $tweet = $('<div class="tweet"></div>');
+            var $tweet = $('<div class=\'' + tweet.user + '\' class="tweet"></div>'); 
             $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
             $tweet.appendTo($tweetBox);
             index -= 1;
           }
+
+          $('.twitts > div').click(function(){    
+            var name = $(this).attr('class');
+            console.log(name); 
+          });
         };
         
         var getSelectedTwitts = function(userName){
-          $tweetBox.html('');
+          $tweetBox.children().remove();
+          var $selectedTwitts = $('.selectedTwitts');
+          $selectedTwitts.html('');
 
-          var index = streams.users.userName.length - 1;
+          var index = streams.users[userName].length - 1;
           while(index >= 0){
-            var tweet = streams.users.userName[index];
+            var tweet = streams.users[userName][index];
             var momentObj = moment(tweet.created_at);
             var $tweet = $('<div class="tweet"></div>');
             $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
@@ -46,17 +53,17 @@
           }
         };
 
-        $('.tweet').click(function(){    
-          var name = $(this).text().split(" ")[4].splice(1);
-          console.log(name);
-        });
-
         $('#GettingAllTwitts').click(function(){    
           getTwitts();
         });
 
         $('#ClearAllTwitts').click(function(){
           $('.twitts').children().remove();
+        });
+
+        $('.twitts > div').click(function(){    
+          var name = $(this).attr('class');
+          getSelectedTwitts(name); 
         });
 
       });
@@ -86,6 +93,7 @@
           <div id="main">
             <ul class="twitts"></ul>
           </div>
+          <div class="selectedTwitts"></div>
         </section>
       </div>
       <div id="footer">  
