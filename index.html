@@ -18,6 +18,8 @@
         var a = moment();
 
         var getTwitts = function() {
+          $('.selectedTwitts').children().remove();
+
           var $tweetBox = $('.twitts');
           $tweetBox.html('');
 
@@ -33,12 +35,14 @@
 
           $('.twitts > div').click(function(){    
             var name = $(this).attr('class').split(' ')[0];
-            console.log(name); 
+            //console.log(name); 
             getSelectedTwitts(name);
           });
         };
         
         var getSelectedTwitts = function(userName){
+          $('.twitts').children().remove();
+
           var $selectedTwitts = $('.selectedTwitts');
           $selectedTwitts.html('');
 
@@ -59,6 +63,7 @@
 
         $('#ClearAllTwitts').click(function(){
           $('.twitts').children().remove();
+          $('.selectedTwitts').children().remove();
         });
 
         $('.twitts > div').click(function(){    
