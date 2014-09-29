@@ -25,20 +25,20 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var momentObj = moment(tweet.created_at);
-            var $tweet = $('<div class=\'' + tweet.user + '\' class="tweet"></div>'); 
+            var $tweet = $('<div class=\'' + tweet.user + '\'></div>').addClass("tweet"); 
             $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
             $tweet.appendTo($tweetBox);
             index -= 1;
           }
 
           $('.twitts > div').click(function(){    
-            var name = $(this).attr('class');
+            var name = $(this).attr('class').split(' ')[0];
             console.log(name); 
+            getSelectedTwitts(name);
           });
         };
         
         var getSelectedTwitts = function(userName){
-          $tweetBox.children().remove();
           var $selectedTwitts = $('.selectedTwitts');
           $selectedTwitts.html('');
 
@@ -48,7 +48,7 @@
             var momentObj = moment(tweet.created_at);
             var $tweet = $('<div class="tweet"></div>');
             $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
-            $tweet.appendTo($tweetBox);
+            $tweet.appendTo($selectedTwitts);
             index -= 1;
           }
         };
