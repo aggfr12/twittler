@@ -7,13 +7,13 @@
     <script src="data_generator.js"></script>
     <script src="moment.min.js"></script>
     <link rel="stylesheet" href="main.css">
-    
+
   </head>
   <body>
 
     <script>
 
-      $(document).ready(function(){
+      $(document).ready(function() {
 
         var a = moment();
 
@@ -24,30 +24,31 @@
           $tweetBox.html('');
 
           var index = streams.home.length - 1;
-          while(index >= 0){
+
+          while (index >= 0){
             var tweet = streams.home[index];
             var momentObj = moment(tweet.created_at);
-            var $tweet = $('<div class=\'' + tweet.user + '\'></div>').addClass("tweet"); 
+            var $tweet = $('<div class=\'' + tweet.user + '\'></div>').addClass("tweet");
             $tweet.text(moment(momentObj).fromNow() + ' @' + tweet.user + ' twittled: ' + tweet.message);
             $tweet.appendTo($tweetBox);
             index -= 1;
           }
 
-          $('.twitts > div').click(function(){    
+          $('.twitts > div').click(function() {
             var name = $(this).attr('class').split(' ')[0];
-            //console.log(name); 
             getSelectedTwitts(name);
           });
         };
-        
-        var getSelectedTwitts = function(userName){
+
+        var getSelectedTwitts = function(userName) {
           $('.twitts').children().remove();
 
           var $selectedTwitts = $('.selectedTwitts');
           $selectedTwitts.html('');
 
           var index = streams.users[userName].length - 1;
-          while(index >= 0){
+
+          while (index >= 0) {
             var tweet = streams.users[userName][index];
             var momentObj = moment(tweet.created_at);
             var $tweet = $('<div class="tweet"></div>');
@@ -57,24 +58,24 @@
           }
         };
 
-        $('#GettingAllTwitts').click(function(){    
+        $('#GettingAllTwitts').click(function() {
           getTwitts();
         });
 
-        $('#ClearAllTwitts').click(function(){
+        $('#ClearAllTwitts').click(function() {
           $('.twitts').children().remove();
           $('.selectedTwitts').children().remove();
         });
 
-        $('.twitts > div').click(function(){    
+        $('.twitts > div').click(function() {
           var name = $(this).attr('class');
-          getSelectedTwitts(name); 
+          getSelectedTwitts(name);
         });
 
       });
-    
+
     </script>
-    
+
     <div id="wrapper">
       <div id="header">
         <header>
@@ -99,13 +100,13 @@
           <div class="selectedTwitts"></div>
         </section>
       </div>
-      <div id="footer">  
+      <div id="footer">
         <footer>
           <p>&copy 2014 Avi Dunn</p>
         </footer>
       </div>
     </div>
   </body>
-  
+
 
 </html>
